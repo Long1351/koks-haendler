@@ -12,14 +12,132 @@
       </block>
     </value>
   </block>
-  <block type="s4d_on_connected" id="ndQLtcI?iFaK=;JJSSeD" x="-1306" y="81">
+  <block type="s4d_on_message" id="sIPV}(nh!6_+,Sp,S*Hf" x="2373" y="-273">
     <statement name="STATEMENTS">
-      <block type="s4d_set_bot_game" id="m/MzF|Xo5pe7?(b2AOq3">
-        <value name="GAME">
-          <block type="text" id="hPXQ=m/(d]%I{wH*C@($">
-            <field name="TEXT">Gammelt am Bahnhof rum!</field>
+      <block type="controls_if" id="@G3$r9ZC9}%+PwsW6kk_">
+        <value name="IF0">
+          <block type="logic_compare" id="#KY-g5@.n=-uJ+C?nx1n">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="Y4=DGpZn^sCG|kdA5H[5"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="5$I#{9po9BWKuInDm$p3">
+                <field name="TEXT"> "mülltonnensuch</field>
+              </block>
+            </value>
           </block>
         </value>
+        <statement name="DO0">
+          <block type="variables_set" id="P.Y4z#@E@*z:kFn5%0Tv">
+            <field name="VAR" id="Z+iw!f%m(GSQ--]?xOn7">chance</field>
+            <value name="VALUE">
+              <block type="math_random_int" id="?5A52NX?mH=_92`?MASS">
+                <value name="FROM">
+                  <shadow type="math_number" id="?nVQPlax0n5-@Coryx|N">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <value name="TO">
+                  <shadow type="math_number" id="E}NlA?p7kML]wa2pq8*)">
+                    <field name="NUM">100</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="~%zid:oY2ddb6_JG-PWp">
+                <mutation else="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="//V;`uk1mc8ezBxmh8FN">
+                    <field name="OP">GT</field>
+                    <value name="A">
+                      <block type="variables_get" id="s%O`.!@GnX_S!Olri=(e">
+                        <field name="VAR" id="Z+iw!f%m(GSQ--]?xOn7">chance</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number" id="9:l*E(!43$)gaZpw+(!b">
+                        <field name="NUM">50</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="variables_set" id="Lx.^%5cH#DwR{=~{5wr^">
+                    <field name="VAR" id="o1L$onC8IGleRR:Mn_.H">random</field>
+                    <value name="VALUE">
+                      <block type="math_random_int" id="BDNHl-evTfZ2p$4Fb/Rc">
+                        <value name="FROM">
+                          <shadow type="math_number" id="/;l7s0QD*n-nN?e8yoZ1">
+                            <field name="NUM">1</field>
+                          </shadow>
+                        </value>
+                        <value name="TO">
+                          <shadow type="math_number" id="wo6H{,LY/k12@6yvB,Xd">
+                            <field name="NUM">10</field>
+                          </shadow>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="s4d_reply" id="4[Gh1gus#6F=cZX,-XB)">
+                        <value name="CONTENT">
+                          <shadow type="text">
+                            <field name="TEXT">Hey!</field>
+                          </shadow>
+                          <block type="text_join" id=";Llw4ZBD;#zqd1lL/D1w">
+                            <mutation items="3"></mutation>
+                            <value name="ADD0">
+                              <block type="text" id="MUhc8.4adpeZ`gv]iuBm">
+                                <field name="TEXT">Du hast </field>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="variables_get" id="g9:a_Nx5ucf?)Z-o7WWD">
+                                <field name="VAR" id="o1L$onC8IGleRR:Mn_.H">random</field>
+                              </block>
+                            </value>
+                            <value name="ADD2">
+                              <block type="text" id="$QwPr6~4ZBAq+up^tAiU">
+                                <field name="TEXT">g Koks in der Mülltonne gefunden!</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="math_change" id="H2TX.=6EflZ4L6rfgWt{">
+                            <field name="VAR" id="Y3zx#ML3R%u$bRM|A=}x">stoff</field>
+                            <value name="DELTA">
+                              <shadow type="math_number">
+                                <field name="NUM">1</field>
+                              </shadow>
+                              <block type="variables_get" id="T+UYaGITjmC,=xDx;c)?">
+                                <field name="VAR" id="o1L$onC8IGleRR:Mn_.H">random</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <statement name="ELSE">
+                  <block type="s4d_reply" id="},FLy2UfLz~Ff$(,wnd,">
+                    <value name="CONTENT">
+                      <shadow type="text" id="$.Gn/KZZs[2GqrW0sA._">
+                        <field name="TEXT">Hey!</field>
+                      </shadow>
+                      <block type="text" id="uZBMakTu#GFhCmy-AvPq">
+                        <field name="TEXT">Du hast leider nichts bekommen.</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
       </block>
     </statement>
   </block>
@@ -192,7 +310,7 @@
                 <field name="TEXT">a</field>
               </shadow>
               <block type="text" id="=lZ]${ZT*$|]@Y_JCCJ|">
-                <field name="TEXT">Du hurrensohn</field>
+                <field name="TEXT">Du Hurensohn</field>
               </block>
             </value>
           </block>
@@ -200,11 +318,11 @@
         <statement name="DO0">
           <block type="s4d_reply" id="R=,W(PlT5yTlx}eI#Zy/">
             <value name="CONTENT">
-              <shadow type="text" id="51^0e.i01N[=zZ(hY$*F">
+              <shadow type="text">
                 <field name="TEXT">Hey!</field>
               </shadow>
               <block type="text" id="|7LF_to(-):e1C!P4^Sg">
-                <field name="TEXT">Selber hurrensohn!</field>
+                <field name="TEXT">Selber Hurensohn!</field>
               </block>
             </value>
           </block>
@@ -264,6 +382,117 @@
                 </next>
               </block>
             </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="34xHIey~]Aq9a(AL`x(E" x="2420" y="543">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="MmNNs/(E+S$/;`CTn;*a">
+        <value name="IF0">
+          <block type="logic_compare" id="[il.kk4f^I6c,#DE7^ZJ">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="rZi_4f^LW~(UQvDjSAqQ"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="z:g,%V9dziLo0=]xwL~f">
+                <field name="TEXT">"help</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="s4d_reply" id="IP;hV;de%,)#N{XDb]L(">
+            <value name="CONTENT">
+              <shadow type="text" id="|~k:-eylnABDTRbd+8my">
+                <field name="TEXT">Hey!</field>
+              </shadow>
+              <block type="text_join" id="~A58G-P$BqB.Wk_0|s{$">
+                <mutation items="20"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="HuvU98*XMM~1:O};AG)A">
+                    <field name="TEXT">**__Alle Commands__**</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="s4d_newline" id="6XN/;G=U.)Jx8;7!aByA"></block>
+                </value>
+                <value name="ADD2">
+                  <block type="s4d_newline" id="ao)#yj7PjgM@s]3;cd3y"></block>
+                </value>
+                <value name="ADD3">
+                  <block type="text" id="gv/kZ?Dg[[X{Pv:BQb4Y">
+                    <field name="TEXT">Hast du Stoff?</field>
+                  </block>
+                </value>
+                <value name="ADD4">
+                  <block type="s4d_newline" id="a.hdy^GT;hOIMP?+X,W4"></block>
+                </value>
+                <value name="ADD5">
+                  <block type="text" id="A+%_SHQ}ZnLi;hg3F|Y}">
+                    <field name="TEXT">"betteln</field>
+                  </block>
+                </value>
+                <value name="ADD6">
+                  <block type="s4d_newline" id="_]WOVuLYGU+$6_)=+$HT"></block>
+                </value>
+                <value name="ADD7">
+                  <block type="text" id="~{(YFDvdeqvWP!p44cCf">
+                    <field name="TEXT">"inventar</field>
+                  </block>
+                </value>
+                <value name="ADD8">
+                  <block type="s4d_newline" id="j+Iuw6Fj(W*/3;{qtEy`"></block>
+                </value>
+                <value name="ADD9">
+                  <block type="text" id="W2C0DS!UKQ~G/8~Ow^?B">
+                    <field name="TEXT">"bank</field>
+                  </block>
+                </value>
+                <value name="ADD10">
+                  <block type="s4d_newline" id="1f_;VLvio_N:w_8-3ZNI"></block>
+                </value>
+                <value name="ADD11">
+                  <block type="text" id=")=pXlSrFs:!|0IylQrU6">
+                    <field name="TEXT">"reset</field>
+                  </block>
+                </value>
+                <value name="ADD12">
+                  <block type="s4d_newline" id="|(bqoAj(]m,Bwc%kzK7$"></block>
+                </value>
+                <value name="ADD13">
+                  <block type="text" id="QHOd4(u?^hgQStuE,ZWn">
+                    <field name="TEXT">"polizei</field>
+                  </block>
+                </value>
+                <value name="ADD14">
+                  <block type="s4d_newline" id="([D#o8tVvADKm#j?`9*]"></block>
+                </value>
+                <value name="ADD15">
+                  <block type="text" id="~z*6:QO1{4QG|4oo,=!R">
+                    <field name="TEXT">"shop</field>
+                  </block>
+                </value>
+                <value name="ADD16">
+                  <block type="s4d_newline" id=",n{,pE(5.j`BHkycvDNj"></block>
+                </value>
+                <value name="ADD17">
+                  <block type="text" id="U7gZu-5%5Fc*_i5o`|5L">
+                    <field name="TEXT">"sell</field>
+                  </block>
+                </value>
+                <value name="ADD18">
+                  <block type="s4d_newline" id="Ou3PeBU`}#IPy]iTo15-"></block>
+                </value>
+                <value name="ADD19">
+                  <block type="text" id="5AP+-4h!YE=0E5w[e+yz">
+                    <field name="TEXT">"mülltonnensuch</field>
+                  </block>
+                </value>
+              </block>
+            </value>
           </block>
         </statement>
       </block>
@@ -801,7 +1030,7 @@
             </value>
             <value name="B">
               <block type="text" id="),KCa6H947nLKHx_xkHU">
-                <field name="TEXT">"convert</field>
+                <field name="TEXT">"sell</field>
               </block>
             </value>
           </block>
@@ -1018,15 +1247,76 @@
             <field name="SEARCH_TYPE">ID</field>
             <value name="VALUE">
               <block type="text" id="WuHdfO$?L+?w_4kWOZPM">
-                <field name="TEXT">964546419220439040</field>
+                <field name="TEXT">963804023557853215</field>
               </block>
             </value>
           </block>
         </value>
+        <next>
+          <block type="s4d_set_bot_game" id="m/MzF|Xo5pe7?(b2AOq3">
+            <field name="OIFD">online</field>
+            <field name="TYPE">LISTENING</field>
+            <value name="GAME">
+              <block type="text" id="hPXQ=m/(d]%I{wH*C@($">
+                <field name="TEXT">Gammelt am Bahnhof rum!</field>
+              </block>
+            </value>
+          </block>
+        </next>
       </block>
     </statement>
   </block>
-  <block type="s4d_on_message" id="BK=h)7iR6kjCNrO/ij2@" x="1584" y="2221">
+  <block type="s4d_on_message" id=":aI.7pYEYfj3=VTRZ%rf" x="2389" y="2225">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="oA1kL.6KLOdQD,p8w;{c">
+        <value name="IF0">
+          <block type="logic_compare" id="Nxeqf++[=u+=tjxvS|fa">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="69ixYmtwTOYb6LUr5Wg|"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="Ko6rp|D]HWc1AOcj=Y5I">
+                <field name="TEXT">"admin</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="RXW^[|=gqTb(,4TEz@ak">
+            <value name="IF0">
+              <block type="logic_compare" id="h2JUu81?%{yKZ(M|q=mn">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="s4d_member_id" id="=dFHN/k@eLQ6)`%5[(zF">
+                    <value name="MEMBER">
+                      <block type="s4d_message_author" id="P?RikOc9x/c`7wzj21]c"></block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="text" id="r5.NOt.yj5KanBym|vlN">
+                    <field name="TEXT">720660271903014993</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="math_change" id="ic^bKpk!Y^GdnLnZLnUg">
+                <field name="VAR" id="Y[-B/7~(~L0B4w66z7JA">money</field>
+                <value name="DELTA">
+                  <shadow type="math_number" id="%IfLJvr4^YJ0wpty{R5s">
+                    <field name="NUM">1000000000</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="BK=h)7iR6kjCNrO/ij2@" x="1590" y="2276">
     <statement name="STATEMENTS">
       <block type="controls_if" id="6,hT4I:LwJ%0,QI0$!cn">
         <value name="IF0">
@@ -1077,132 +1367,6 @@
                     </value>
                     <value name="B">
                       <shadow type="math_number" id="y|D#~zF~V)eVF0ctBZis">
-                        <field name="NUM">1000000000</field>
-                      </shadow>
-                    </value>
-                  </block>
-                </value>
-              </block>
-            </statement>
-          </block>
-        </statement>
-      </block>
-    </statement>
-  </block>
-  <block type="s4d_on_message" id=":aI.7pYEYfj3=VTRZ%rf" x="2389" y="2225">
-    <statement name="STATEMENTS">
-      <block type="controls_if" id="oA1kL.6KLOdQD,p8w;{c">
-        <value name="IF0">
-          <block type="logic_compare" id="Nxeqf++[=u+=tjxvS|fa">
-            <field name="OP">EQ</field>
-            <value name="A">
-              <block type="s4d_message_content" id="69ixYmtwTOYb6LUr5Wg|"></block>
-            </value>
-            <value name="B">
-              <block type="text" id="Ko6rp|D]HWc1AOcj=Y5I">
-                <field name="TEXT">"admin</field>
-              </block>
-            </value>
-          </block>
-        </value>
-        <statement name="DO0">
-          <block type="controls_if" id="RXW^[|=gqTb(,4TEz@ak">
-            <value name="IF0">
-              <block type="logic_compare" id="h2JUu81?%{yKZ(M|q=mn">
-                <field name="OP">EQ</field>
-                <value name="A">
-                  <block type="s4d_member_id" id="=dFHN/k@eLQ6)`%5[(zF">
-                    <value name="MEMBER">
-                      <block type="s4d_message_author" id="P?RikOc9x/c`7wzj21]c"></block>
-                    </value>
-                  </block>
-                </value>
-                <value name="B">
-                  <block type="text" id="r5.NOt.yj5KanBym|vlN">
-                    <field name="TEXT">720660271903014993</field>
-                  </block>
-                </value>
-              </block>
-            </value>
-            <statement name="DO0">
-              <block type="variables_set" id="/+Km5NcENw2E9`{l0@ZB">
-                <field name="VAR" id="Y[-B/7~(~L0B4w66z7JA">money</field>
-                <value name="VALUE">
-                  <block type="math_arithmetic" id="KojC5ojCc#9_=#`W3gxT">
-                    <field name="OP">ADD</field>
-                    <value name="A">
-                      <shadow type="math_number">
-                        <field name="NUM">1</field>
-                      </shadow>
-                      <block type="variables_get" id="QlMlY}s=51kDdQveLQ?^">
-                        <field name="VAR" id="Y[-B/7~(~L0B4w66z7JA">money</field>
-                      </block>
-                    </value>
-                    <value name="B">
-                      <shadow type="math_number" id="njZcVpc[rbhIIM%Z#q:.">
-                        <field name="NUM">1000000000</field>
-                      </shadow>
-                    </value>
-                  </block>
-                </value>
-              </block>
-            </statement>
-          </block>
-        </statement>
-      </block>
-    </statement>
-  </block>
-  <block type="s4d_on_message" id="fMYRuyG[,^~PckXI]xEy" x="1582" y="2552">
-    <statement name="STATEMENTS">
-      <block type="controls_if" id="9_Zf$s)fBi2^~yZi)17)">
-        <value name="IF0">
-          <block type="logic_compare" id="_E-QIpEm~6z*1^zpGF0(">
-            <field name="OP">EQ</field>
-            <value name="A">
-              <block type="s4d_message_content" id="-h{4f$;*4+B;z7zrR7@l"></block>
-            </value>
-            <value name="B">
-              <block type="text" id="s2Pn_!,#xkk3WYy1eviV">
-                <field name="TEXT">"undo</field>
-              </block>
-            </value>
-          </block>
-        </value>
-        <statement name="DO0">
-          <block type="controls_if" id="+|MaApHzsd1ChF1E~g,K">
-            <value name="IF0">
-              <block type="logic_compare" id="`lNn92WGp+#r3wN/4Kk+">
-                <field name="OP">EQ</field>
-                <value name="A">
-                  <block type="s4d_member_id" id="}BShaCmQG@FKZD7`*E2:">
-                    <value name="MEMBER">
-                      <block type="s4d_message_author" id="w:I}`x`Gv$EUk,`e!w|Y"></block>
-                    </value>
-                  </block>
-                </value>
-                <value name="B">
-                  <block type="text" id="h6oR$~f.W2#x[A#n?y@b">
-                    <field name="TEXT">440778837194965002</field>
-                  </block>
-                </value>
-              </block>
-            </value>
-            <statement name="DO0">
-              <block type="variables_set" id="G})X:A2Im=Ad82HGH6.#">
-                <field name="VAR" id="Y[-B/7~(~L0B4w66z7JA">money</field>
-                <value name="VALUE">
-                  <block type="math_arithmetic" id=":64Ww=:v4L!N(RgK#FXt">
-                    <field name="OP">MINUS</field>
-                    <value name="A">
-                      <shadow type="math_number" id="Gx!wD!*89qvb?*k9K2bR">
-                        <field name="NUM">1</field>
-                      </shadow>
-                      <block type="variables_get" id="QO-}EvDSc[P}dxF0;D2`">
-                        <field name="VAR" id="Y[-B/7~(~L0B4w66z7JA">money</field>
-                      </block>
-                    </value>
-                    <value name="B">
-                      <shadow type="math_number" id="l-8wGt$AQ}5}qc;tJm_c">
                         <field name="NUM">1000000000</field>
                       </shadow>
                     </value>
@@ -1266,6 +1430,69 @@
                     </value>
                     <value name="B">
                       <shadow type="math_number" id="AV/=ft^uAAt]!C8)mpP=">
+                        <field name="NUM">1000000000</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="s4d_on_message" id="fMYRuyG[,^~PckXI]xEy" x="1585" y="2638">
+    <statement name="STATEMENTS">
+      <block type="controls_if" id="9_Zf$s)fBi2^~yZi)17)">
+        <value name="IF0">
+          <block type="logic_compare" id="_E-QIpEm~6z*1^zpGF0(">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="s4d_message_content" id="-h{4f$;*4+B;z7zrR7@l"></block>
+            </value>
+            <value name="B">
+              <block type="text" id="s2Pn_!,#xkk3WYy1eviV">
+                <field name="TEXT">"undo</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="controls_if" id="+|MaApHzsd1ChF1E~g,K">
+            <value name="IF0">
+              <block type="logic_compare" id="`lNn92WGp+#r3wN/4Kk+">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="s4d_member_id" id="}BShaCmQG@FKZD7`*E2:">
+                    <value name="MEMBER">
+                      <block type="s4d_message_author" id="w:I}`x`Gv$EUk,`e!w|Y"></block>
+                    </value>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="text" id="h6oR$~f.W2#x[A#n?y@b">
+                    <field name="TEXT">440778837194965002</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id="G})X:A2Im=Ad82HGH6.#">
+                <field name="VAR" id="Y[-B/7~(~L0B4w66z7JA">money</field>
+                <value name="VALUE">
+                  <block type="math_arithmetic" id=":64Ww=:v4L!N(RgK#FXt">
+                    <field name="OP">MINUS</field>
+                    <value name="A">
+                      <shadow type="math_number" id="Gx!wD!*89qvb?*k9K2bR">
+                        <field name="NUM">1</field>
+                      </shadow>
+                      <block type="variables_get" id="QO-}EvDSc[P}dxF0;D2`">
+                        <field name="VAR" id="Y[-B/7~(~L0B4w66z7JA">money</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <shadow type="math_number" id="l-8wGt$AQ}5}qc;tJm_c">
                         <field name="NUM">1000000000</field>
                       </shadow>
                     </value>
