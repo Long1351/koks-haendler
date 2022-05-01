@@ -6,12 +6,12 @@
                   });
                   const events = require('events');
                   let Discord = require("discord.js")
-let Database  = require("easy-json-database")
-let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")
-let logs = require("discord-logs")
-const os = require("os-utils");
-const lyricsFinder = require('lyrics-finder');
-let fs = require('fs');
+                  let { MessageEmbed, MessageButton, MessageActionRow, Intents, Permissions, MessageSelectMenu }= require("discord.js")
+                  let logs = require("discord-logs")
+                  const os = require("os-utils");
+                  const lyricsFinder = require('lyrics-finder');
+                  let fs = require('fs');
+                  let Database  = require("easy-json-database")
                     const devMode = typeof __E_IS_DEV !== "undefined" && __E_IS_DEV;
                     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
                     const s4d = {
@@ -190,7 +190,7 @@ s4d.client.on('messageCreate', async (s4dmessage) => {
 s4d.client.on('messageCreate', async (s4dmessage) => {
   if ((s4dmessage.content) == '"buy vip') {
     if (money >= 250000) {
-      (s4dmessage.author).roles.add((.roles.cache.get('965971736120148038')));
+      (s4dmessage.author).roles.add((roles.cache.get('965971736120148038')));
       money = money - 250000;
       s4dmessage.channel.send({content:String('Erfolgreich gekauft!')});
       s4dmessage.react('👍');} else {
