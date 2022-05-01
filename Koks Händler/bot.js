@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 (async()=>{
                 let process = require('process');
                 process.on('uncaughtException', function (err) {
@@ -18,7 +17,7 @@ let fs = require('fs');
                     const s4d = {
                         Discord,
                         database: new Database(`./database.json`),
-fire:null,
+                        fire:null,
                         joiningMember:null,
                         reply:null,
                         tokenInvalid:false,
@@ -34,8 +33,6 @@ fire:null,
                         }
                     };
                     s4d.client = new s4d.Discord.Client({
-=======
-
                 (async()=>{
                 const token = require("./token.json")
                 const Discord = require("discord.js");
@@ -55,7 +52,7 @@ fire:null,
                     }
                 };
                 s4d.client = new s4d.Discord.Client({
->>>>>>> Stashed changes
+
                     intents: [Object.values(s4d.Discord.Intents.FLAGS).reduce((acc, p) => acc | p, 0)],
                     partials: ["REACTION", "CHANNEL"]
                     });
@@ -75,8 +72,6 @@ function mathRandomInt(a, b) {
   return Math.floor(Math.random() * (b - a + 1) + a);
 }
 
-
-<<<<<<< Updated upstream
 await s4d.client.login('OTY1NzI4MDQ3MzM0NTU1NzI5.Yl3aVA.Q4abON_S2MmDNoAWW00rWZYnJFI').catch((e) => {
         s4d.tokenInvalid = true;
         s4d.tokenError = e;
@@ -86,9 +81,7 @@ await s4d.client.login('OTY1NzI4MDQ3MzM0NTU1NzI5.Yl3aVA.Q4abON_S2MmDNoAWW00rWZYn
             throw new Error("Intents are not turned on!")
         }
     });
-=======
 await s4d.client.login(token).catch((e) => { s4d.tokenInvalid = true; s4d.tokenError = e; });
->>>>>>> Stashed changes
 
 s4d.client.on('messageCreate', async (s4dmessage) => {
   if ((s4dmessage.content) == ' "mülltonnensuch') {
