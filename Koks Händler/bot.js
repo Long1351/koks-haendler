@@ -72,7 +72,7 @@ function mathRandomInt(a, b) {
   return Math.floor(Math.random() * (b - a + 1) + a);
 }
 
-await s4d.client.login('OTY1NzI4MDQ3MzM0NTU1NzI5.Yl3aVA.Q4abON_S2MmDNoAWW00rWZYnJFI').catch((e) => {
+await s4d.client.login('your token').catch((e) => {
         s4d.tokenInvalid = true;
         s4d.tokenError = e;
         if (e.toString().toLowerCase().includes("token")) {
